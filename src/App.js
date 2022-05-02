@@ -3,6 +3,16 @@ import "./styles.css";
 import Die from "./components/Die";
 
 export default function App() {
+  // Generate array of 10 random numbers from 1 to 6
+  function allNewDice() {
+    const newDice = [];
+    for (let i = 0; i < 10; i++) {
+      newDice.push(Math.ceil(Math.random() * 6));
+    }
+    return newDice;
+  }
+  console.log(allNewDice());
+
   return (
     <main className="App">
       <div className="die-container">
