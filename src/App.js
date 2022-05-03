@@ -3,6 +3,14 @@ import "./styles.css";
 import Die from "./components/Die";
 
 export default function App() {
+  //Create state to hold our array of numbers
+  const [dice, setDice] = React.useState(allNewDice());
+
+  //Map over the state numbers array to generate our array
+  //of Die elements and render those in place of our
+  //manually-written 10 Die elements.
+  const diceElements = dice.map((die) => <Die value={die} />);
+
   // Generate array of 10 random numbers from 1 to 6
   function allNewDice() {
     const newDice = [];
@@ -11,22 +19,10 @@ export default function App() {
     }
     return newDice;
   }
-  console.log(allNewDice());
 
   return (
     <main className="App">
-      <div className="die-container">
-        <Die value={1} />
-        <Die value={2} />
-        <Die value={3} />
-        <Die value={4} />
-        <Die value={5} />
-        <Die value={6} />
-        <Die value={7} />
-        <Die value={8} />
-        <Die value={9} />
-        <Die value={10} />
-      </div>
+      <div className="die-container">{diceElements}</div>
     </main>
   );
 }
