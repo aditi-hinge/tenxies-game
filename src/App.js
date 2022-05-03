@@ -1,6 +1,7 @@
 import React from "react";
 import "./styles.css";
 import Die from "./components/Die";
+import uniqid from "uniqid";
 
 export default function App() {
   //Create state to hold our array of numbers
@@ -17,7 +18,8 @@ export default function App() {
     for (let i = 0; i < 10; i++) {
       newDice.push({
         value: Math.ceil(Math.random() * 6),
-        isHeld: false
+        isHeld: false,
+        id: uniqid()
       });
     }
     return newDice;
