@@ -10,7 +10,9 @@ export default function App() {
   //Map over the state numbers array to generate our array
   //of Die elements and render those in place of our
   //manually-written 10 Die elements.
-  const diceElements = dice.map((die) => <Die value={die.value} />);
+  const diceElements = dice.map((die) => (
+    <Die id={die.id} value={die.value} isHeld={die.isHeld} />
+  ));
 
   // Generate array of 10 random numbers from 1 to 6
   function allNewDice() {
@@ -18,7 +20,7 @@ export default function App() {
     for (let i = 0; i < 10; i++) {
       newDice.push({
         value: Math.ceil(Math.random() * 6),
-        isHeld: false,
+        isHeld: true,
         id: uniqid()
       });
     }
