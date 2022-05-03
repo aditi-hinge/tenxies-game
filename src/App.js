@@ -20,9 +20,18 @@ export default function App() {
     return newDice;
   }
 
+  // create new dice after clicking the roll button
+
+  function rollDice() {
+    setDice(allNewDice());
+  }
+
   return (
     <main className="App">
       <div className="die-container">{diceElements}</div>
+      <button className="roll-dice-button" onClick={rollDice}>
+        Roll
+      </button>
     </main>
   );
 }
